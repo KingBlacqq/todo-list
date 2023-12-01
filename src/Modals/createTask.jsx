@@ -4,15 +4,15 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const CreateTask = ({modal, toggle, save}) => {
  
-  const [taskName, setTaskName] = useState("");
+  const [taskname, setTaskname] = useState("");
 
   const [description, setDescription] = useState("");
 
   const handleChange = (e) => {
     const {name, value} = e.target
 
-    if (name === "taskName"){
-      setTaskName(value)
+    if (name === "taskname"){
+      setTaskname(value)
     } else {
       setDescription(value)
     }
@@ -20,10 +20,10 @@ const CreateTask = ({modal, toggle, save}) => {
 
   const handleSave = () => {
     let taskObj = {}
-    taskObj["Name"] = taskName
+    taskObj["Name"] = taskname
     taskObj["Description"] = description
     save(taskObj);
-    console.log(taskObj, taskName);
+    console.log(taskObj, taskname);
   }
   const colors = [
     {
@@ -46,7 +46,7 @@ const CreateTask = ({modal, toggle, save}) => {
 
            <div className="form-group">
             <label for="taskname" className=" pb-2 " style={{"fontFamily" : "calibri", "fontWeight" : "500", "letterSpacing" : "0.03em" , "color" : "#301934"}}>Task Name:</label>
-             <input type="text" className = "form-control" id="taskname" value = {taskName} onChange = {handleChange} name="taskName" />
+             <input type="text" className = "form-control" id="taskname" value = {taskname} onChange = {handleChange} name="taskName" />
            </div>
            <div className="form-group">
             <label className="pt-2 pb-1.5"  style={{"fontFamily" : "calibri", "fontWeight" : "500", "letterSpacing" : "0.03em" , "color" : "#301934"}}>Description:</label>

@@ -5,15 +5,15 @@ import Card from "./card";
 
 const TodoList = () => {
   const [modal, setModal] = useState(false);
-  const [taskList, setTaskList] = useState([])
+  const [tasklist, setTasklist] = useState([])
 
   useEffect(() => {
-    let arr = localStorage.getItem("taskList")
+    let arr = localStorage.getItem("tasklist")
    
 
     if(arr){
       let obj = JSON.parse(arr)
-      setTaskList(obj)
+      setTasklist(obj)
     }
   }, [])
 
@@ -22,48 +22,42 @@ const TodoList = () => {
   }
  
   const saveTask = (taskObj) => {
-    let tempList = taskList
-    tempList.push(taskObj)
-    localStorage.setItem("tasklist", JSON.stringify(tempList))
-    setTaskList(tempList)
+    let templist = tasklist
+    templist.push(taskObj)
+    localStorage.setItem("tasklist", JSON.stringify(templist))
+    setTasklist(templist)
     setModal(false)
   }
 
   const deleteTask = (index) => {
-    let tempList = taskList
-    tempList.splice(index, 1)
-    localStorage.setItem("tasklist", JSON.stringify(tempList))
-    setTaskList(tempList)
+    let templist = tasklist
+    templist.splice(index, 1)
+    localStorage.setItem("tasklist", JSON.stringify(templist))
+    setTasklist(templist)
     window.location.reload()
   
   }
 
    const updateListArray = () =>{
-    let tempList = taskList
-    tempList[index] = obj
-    localStorage.setItem("taskList", JSON.stringify(tempList))
-    setTaskList(tempList)
+    let templist = tasklist
+    templist[index] = obj
+    localStorage.setItem("tasklist", JSON.stringify(templist))
+    setTasklist(templist)
     window.location.reload()
    } 
   
-   const backgroundImageUrl = 'url("./public/Images/header-bg.jpg")';
-   const containerStyle = {
-    backgroundImage: backgroundImageUrl,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    minHeight: '300px',
-    
-   };
+   
+   
   return(
     <>
 
-    <div className="header text-center" style={containerStyle}>
+    <div className="header text-center">
      <h2 className="header-text">To-do List</h2>
      <button id="button" className="btn mt-2"  onClick = {() => setModal(true)}>Create Task</button>
     </div>
 
     <div className="task-container">
-      {taskList.map((obj, index) => <Card taskObj = {obj} index={index} deleteTask = {deleteTask} updateListArray = {updateListArray} />)}
+      {tasklist.map((obj, index) => <Card taskObj = {obj} index={index} deleteTask = {deleteTask} updateListArray = {updateListArray} />)}
     </div>
     <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
     </>

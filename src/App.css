@@ -7,7 +7,11 @@
   padding-top: 3.125rem;
   border-radius: 0rem 0rem 3rem 3rem;
   background-attachment: fixed;
-  
+  background-image: url("./public/Images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 300px;
 }
 
 

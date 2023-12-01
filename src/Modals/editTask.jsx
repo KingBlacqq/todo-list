@@ -44,7 +44,7 @@ const EditTask = ({ modal, toggle, updateTask, taskObj}) => {
         <ModalBody>
           <form>
             <div className="form-group">
-              <label for="taskName" className=" pb-2">
+              <label htmlFor="taskName" className=" pb-2">
                 Task Name:
               </label>
               <input
