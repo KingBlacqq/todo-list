@@ -1,0 +1,1 @@
+export {default as HEADER} from 'header-bg.jpg'
