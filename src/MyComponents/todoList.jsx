@@ -46,7 +46,7 @@ const TodoList = () => {
     window.location.reload()
    } 
   
-   const backgroundImageUrl = 'url("src/Images/header-bg.jpg")';
+   const backgroundImageUrl = 'url("./public/Images/header-bg.jpg")';
    const containerStyle = {
     backgroundImage: backgroundImageUrl,
     backgroundSize: 'cover',
